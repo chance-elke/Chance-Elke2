@@ -3,1175 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Small Business Catering</title>
+    <title>CultureCater - NYC Catering Service</title>
     <style>
-        :root {
-            --primary: #2D3047;
-            --primary-light: #3D4163;
-            --accent: #FF9E2C;
-            --accent-hover: #F08C1F;
-            --light: #F8F9FA;
-            --text: #2D3047;
-            --text-light: #6C757D;
-            --white: #FFFFFF;
-            --border: #E9ECEF;
-            --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
-            --radius: 12px;
-            --radius-sm: 8px;
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
+            background-color: #f4f4f9;
+            color: #333;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: 2.75rem;
-            letter-spacing: -0.5px;
-        }
-
-        h2 {
-            font-size: 1.75rem;
-            letter-spacing: -0.3px;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 28px;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            outline: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: var(--white);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--light);
-            border-color: var(--text-light);
-        }
-
-        .btn-sm {
-            padding: 10px 20px;
-            font-size: 0.875rem;
-        }
-
-        /* Header & Navigation */
         header {
-            background-color: var(--white);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 16px 0;
+            background: linear-gradient(90deg, #ff6f61, #de4d4d);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background-color: var(--accent);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-weight: 900;
+            gap: 2rem;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .nav-link {
+        nav a {
             text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
+            color: #ff6f61;
+            font-weight: bold;
+            transition: color 0.3s;
         }
 
-        .nav-link:hover {
-            color: var(--accent);
+        nav a:hover {
+            color: #de4d4d;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: var(--transition);
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            margin-bottom: 24px;
-            color: var(--primary);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-        }
-
-        .hero-image {
-            margin-top: 60px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        /* Main Content */
-        .order-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 40px;
-            margin: 40px 0 80px;
-        }
-
-        .card-header {
-            margin-bottom: 32px;
-        }
-
-        .card-header h2 {
-            margin-bottom: 8px;
-        }
-
-        .card-description {
-            color: var(--text-light);
-        }
-
-        .steps-indicator {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .steps-indicator::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: var(--border);
-            z-index: 1;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            width: 33.333%;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--white);
-            border: 2px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            margin-bottom: 12px;
-            transition: var(--transition);
-        }
-
-        .step.active .step-number {
-            background-color: var(--accent);
-            border-color: var(--accent);
-            color: var(--white);
-        }
-
-        .step.completed .step-number {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: var(--white);
-        }
-
-        .step-label {
-            font-weight: 500;
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-
-        .step.active .step-label {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        /* Form Styles */
         .form-section {
-            display: none;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .form-section.active {
+        .form-section h2 {
+            color: #ff6f61;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
             display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
         }
 
-        .form-row {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        .form-control {
+        input, select, textarea {
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(255, 158, 44, 0.1);
-        }
-
-        .form-hint {
-            margin-top: 6px;
-            font-size: 0.875rem;
-            color: var(--text-light);
-        }
-
-        /* Cuisine Selection */
-        .cuisine-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 24px;
-            margin-top: 16px;
-        }
-
-        .cuisine-card {
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            background-color: var(--white);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .cuisine-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .cuisine-card.selected {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-        }
-
-        .cuisine-image {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-        }
-
-        .cuisine-details {
-            padding: 16px;
-            text-align: center;
-        }
-
-        .cuisine-name {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .cuisine-description {
-            font-size: 0.875rem;
-            color: var(--text-light);
-        }
-
-        /* Budget Slider */
-        .budget-slider {
-            margin-top: 16px;
-        }
-
-        .range-slider {
-            width: 100%;
-            -webkit-appearance: none;
-            height: 6px;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            background: var(--border);
-            outline: none;
+            font-size: 1rem;
         }
 
-        .range-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--accent);
+        button {
+            background: #ff6f61;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
             cursor: pointer;
-            border: 2px solid var(--white);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
         }
 
-        .range-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
+        button:hover {
+            background: #de4d4d;
         }
 
-        .range-label {
-            font-size: 0.875rem;
-            color: var(--text-light);
-        }
-
-        .budget-display {
-            margin-top: 16px;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent);
+        .account-section {
+            margin-top: 2rem;
             text-align: center;
         }
 
-        /* Restaurant List */
-        .restaurants-section {
-            display: none;
+        .account-section a {
+            color: #ff6f61;
+            text-decoration: none;
         }
 
-        .restaurants-section.active {
-            display: block;
-        }
-
-        .restaurant-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 24px;
-            margin-top: 24px;
-        }
-
-        .restaurant-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .restaurant-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .restaurant-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .restaurant-content {
-            padding: 24px;
-        }
-
-        .restaurant-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .restaurant-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .restaurant-cuisine {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .restaurant-rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .restaurant-description {
-            margin-bottom: 16px;
-            color: var(--text-light);
-        }
-
-        .restaurant-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .restaurant-feature {
-            background-color: var(--light);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* Order Summary */
-        .summary-section {
-            display: none;
-        }
-
-        .summary-section.active {
-            display: block;
-        }
-
-        .summary-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            padding: 24px;
-            margin-top: 24px;
-        }
-
-        .summary-header {
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .summary-restaurant {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .summary-details {
-            margin-bottom: 24px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .summary-label {
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .summary-value {
-            font-weight: 600;
-        }
-
-        .summary-total {
-            margin-top: 24px;
-            text-align: right;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .summary-actions {
-            margin-top: 32px;
-            display: flex;
-            gap: 16px;
-            justify-content: space-between;
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background-color: #ecfdf5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: #10b981;
-            font-size: 2rem;
-        }
-
-        /* Footer */
         footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 80px 0 40px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-brand p {
-            margin-top: 16px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-link {
-            margin-bottom: 12px;
-        }
-
-        .footer-link a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-link a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .copyright {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.875rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 16px;
-        }
-
-        .social-link {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--accent);
-            transform: translateY(-4px);
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .cuisine-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-
-            .restaurant-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .footer-bottom {
+            nav {
                 flex-direction: column;
-                gap: 20px;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <div class="logo-icon">L</div>
-                    LocalEats
-                </a>
-
-                <div class="nav-links">
-                    <a href="#" class="nav-link">How It Works</a>
-                    <a href="#" class="nav-link">Explore Cuisines</a>
-                    <a href="#" class="nav-link">For Businesses</a>
-                    <a href="#" class="nav-link">Partner Restaurants</a>
-                </div>
-
-                <div class="nav-actions">
-                    <a href="#" class="nav-link">Sign In</a>
-                    <a href="#" class="btn btn-primary btn-sm">Get Started</a>
-                </div>
-            </nav>
-        </div>
+        <h1>CultureCater</h1>
+        <p>Order Authentic Catering from NYC's Finest Small Businesses</p>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Authentic Local Catering for Your Business</h1>
-                <p>Support NYC's diverse small restaurants while treating your team to exceptional food experiences. Easy ordering, reliable delivery, personalized service.</p>
-                <a href="#order-form" class="btn btn-primary">Order Catering</a>
-            </div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#order">Order Now</a>
+        <a href="#account">My Account</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-            <div class="hero-image">
-                <img src="/api/placeholder/1200/500" alt="NYC Catering Collage">
-            </div>
-        </div>
-    </section>
-
-    <main class="container">
-        <div class="order-card" id="order-form">
-            <div class="card-header">
-                <h2>Create Your Catering Order</h2>
-                <p class="card-description">Fill in the details below to find the perfect catering option for your event.</p>
-            </div>
-
-            <div class="steps-indicator">
-                <div class="step active" id="step-1">
-                    <div class="step-number">1</div>
-                    <div class="step-label">Event Details</div>
-                </div>
-                <div class="step" id="step-2">
-                    <div class="step-number">2</div>
-                    <div class="step-label">Choose Restaurant</div>
-                </div>
-                <div class="step" id="step-3">
-                    <div class="step-number">3</div>
-                    <div class="step-label">Confirm Order</div>
-                </div>
-            </div>
-
-            <!-- Step 1: Event Details -->
-            <div class="form-section active" id="form-step-1">
-                <div class="form-row">
-                    <label class="form-label">What type of cuisine are you looking for?</label>
-                    <div class="cuisine-grid">
-                        <div class="cuisine-card" onclick="selectCuisine(this, 'Italian')">
-                            <img src="/api/placeholder/200/140" alt="Italian Food" class="cuisine-image">
-                            <div class="cuisine-details">
-                                <div class="cuisine-name">Italian</div>
-                                <div class="cuisine-description">Pasta, Pizza & More</div>
-                            </div>
-                        </div>
-
-                        <div class="cuisine-card" onclick="selectCuisine(this, 'Asian Fusion')">
-                            <img src="/api/placeholder/200/140" alt="Asian Fusion" class="cuisine-image">
-                            <div class="cuisine-details">
-                                <div class="cuisine-name">Asian Fusion</div>
-                                <div class="cuisine-description">Innovative Asian Flavors</div>
-                            </div>
-                        </div>
-
-                        <div class="cuisine-card" onclick="selectCuisine(this, 'Mexican')">
-                            <img src="/api/placeholder/200/140" alt="Mexican Food" class="cuisine-image">
-                            <div class="cuisine-details">
-                                <div class="cuisine-name">Mexican</div>
-                                <div class="cuisine-description">Authentic Tacos & More</div>
-                            </div>
-                        </div>
-
-                        <div class="cuisine-card" onclick="selectCuisine(this, 'Middle Eastern')">
-                            <img src="/api/placeholder/200/140" alt="Middle Eastern Food" class="cuisine-image">
-                            <div class="cuisine-details">
-                                <div class="cuisine-name">Middle Eastern</div>
-                                <div class="cuisine-description">Fresh & Flavorful</div>
-                            </div>
-                        </div>
-
-                        <div class="cuisine-card" onclick="selectCuisine(this, 'Indian')">
-                            <img src="/api/placeholder/200/140" alt="Indian Food" class="cuisine-image">
-                            <div class="cuisine-details">
-                                <div class="cuisine-name">Indian</div>
-                                <div class="cuisine-description">Aromatic & Spiced</div>
-                            </div>
-                        </div>
-
-                        <div class="cuisine-card" onclick="selectCuisine(this, 'Caribbean')">
-                            <img src="/api/placeholder/200/140" alt="Caribbean Food" class="cuisine-image">
-                            <div class="cuisine-details">
-                                <div class="cuisine-name">Caribbean</div>
-                                <div class="cuisine-description">Tropical & Flavorful</div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container">
+        <section id="order" class="form-section">
+            <h2>Place Your Catering Order</h2>
+            <form id="cateringForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="cuisine">Cuisine Type</label>
+                    <select id="cuisine" name="cuisine" required>
+                        <option value="">Select a Cuisine</option>
+                        <option value="italian">Italian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="indian">Indian</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="ethiopian">Ethiopian</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="thai">Thai</option>
+                    </select>
                 </div>
 
-                <div class="form-row">
-                    <label class="form-label" for="event-date">When do you need the food?</label>
-                    <input type="datetime-local" id="event-date" class="form-control" min="2025-02-28T09:00">
-                    <div class="form-hint">Please allow at least 24 hours advance notice for most orders.</div>
+                <div class="form-group">
+                    <label for="date">Date of Delivery</label>
+                    <input type="date" id="date" name="date" min="2025-03-01" required>
                 </div>
 
-                <div class="form-row">
-                    <label class="form-label" for="people-count">How many people need to be fed?</label>
-                    <input type="number" id="people-count" class="form-control" min="5" placeholder="Enter number of people">
-                    <div class="form-hint">Most restaurants require a minimum of 8-10 people for catering orders.</div>
+                <div class="form-group">
+                    <label for="time">Time of Delivery</label>
+                    <input type="time" id="time" name="time" required>
                 </div>
 
-                <div class="form-row">
-                    <label class="form-label">What's your budget per person?</label>
-                    <div class="budget-slider">
-                        <input type="range" id="budget" class="range-slider" min="15" max="50" value="25" oninput="updateBudget(this.value)">
-                        <div class="range-labels">
-                            <span class="range-label">$15</span>
-                            <span class="range-label">$30</span>
-                            <span class="range-label">$50+</span>
-                        </div>
-                        <div class="budget-display" id="budget-display">$25 per person</div>
-                    </div>
+                <div class="form-group">
+                    <label for="people">Number of People</label>
+                    <input type="number" id="people" name="people" min="1" required>
                 </div>
 
-                <div class="form-row">
-                    <label class="form-label">Any dietary restrictions we should know about?</label>
-                    <div class="dietary-options">
-                        <label class="checkbox-container">
-                            <input type="checkbox" value="vegetarian"> Vegetarian options needed
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" value="vegan"> Vegan options needed
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" value="gluten-free"> Gluten-free options needed
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" value="halal"> Halal options needed
-                        </label>
-                    </div>
+                <div class="form-group">
+                    <label for="delivery">Delivery Address</label>
+                    <textarea id="delivery" name="delivery" rows="3" placeholder="Enter full address" required></textarea>
                 </div>
 
-                <div style="display: flex; justify-content: flex-end; margin-top: 32px;">
-                    <button class="btn btn-primary" onclick="goToStep(2)">Find Restaurants</button>
-                </div>
-            </div>
-
-            <!-- Step 2: Restaurant Selection -->
-            <div class="form-section" id="form-step-2">
-                <div class="restaurants-section active">
-                    <h3>Available Restaurants</h3>
-                    <p>Based on your preferences, here are some great options:</p>
-
-                    <div class="restaurant-cards">
-                        <div class="restaurant-card">
-                            <img src="/api/placeholder/400/180" alt="Bella Trattoria" class="restaurant-image">
-                            <div class="restaurant-content">
-                                <h3 class="restaurant-name">Bella Trattoria</h3>
-                                <div class="restaurant-meta">
-                                    <span class="restaurant-cuisine">Italian</span>
-                                    <span class="restaurant-rating">★★★★★ 4.8 (124)</span>
-                                </div>
-                                <p class="restaurant-description">Family-owned trattoria specializing in homemade pasta and wood-fired pizzas made with locally-sourced ingredients when possible.</p>
-                                <div class="restaurant-features">
-                                    <span class="restaurant-feature">$35/person</span>
-                                    <span class="restaurant-feature">Min. 12 people</span>
-                                    <span class="restaurant-feature">All dietary options</span>
-                                </div>
-                                <button class="btn btn-primary" onclick="selectRestaurant('Bella Trattoria', 'Italian', 35)">Select & Customize</button>
-                            </div>
-                        </div>
-
-                        <div class="restaurant-card">
-                            <img src="/api/placeholder/400/180" alt="Sapori di Napoli" class="restaurant-image">
-                            <div class="restaurant-content">
-                                <h3 class="restaurant-name">Sapori di Napoli</h3>
-                                <div class="restaurant-meta">
-                                    <span class="restaurant-cuisine">Italian</span>
-                                    <span class="restaurant-rating">★★★★☆ 4.6 (98)</span>
-                                </div>
-                                <p class="restaurant-description">Authentic Neapolitan cuisine with signature pasta dishes, antipasti platters, and homemade desserts. Popular for corporate events.</p>
-                                <div class="restaurant-features">
-                                    <span class="restaurant-feature">$30/person</span>
-                                    <span class="restaurant-feature">Min. 10 people</span>
-                                    <span class="restaurant-feature">Gluten-free options</span>
-                                </div>
-                                <button class="btn btn-primary" onclick="selectRestaurant('Sapori di Napoli', 'Italian', 30)">Select & Customize</button>
-                            </div>
-                        </div>
-
-                        <div class="restaurant-card">
-                            <img src="/api/placeholder/400/180" alt="Giardino Italiano" class="restaurant-image">
-                            <div class="restaurant-content">
-                                <h3 class="restaurant-name">Giardino Italiano</h3>
-                                <div class="restaurant-meta">
-                                    <span class="restaurant-cuisine">Italian</span>
-                                    <span class="restaurant-rating">★★★★★ 4.9 (156)</span>
-                                </div>
-                                <p class="restaurant-description">Modern Italian cuisine with seasonal, farm-to-table ingredients. Offering customizable catering packages for any event size.</p>
-                                <div class="restaurant-features">
-                                    <span class="restaurant-feature">$40/person</span>
-                                    <span class="restaurant-feature">Min. 15 people</span>
-                                    <span class="restaurant-feature">Vegetarian & Vegan</span>
-                                </div>
-                                <button class="btn btn-primary" onclick="selectRestaurant('Giardino Italiano', 'Italian', 40)">Select & Customize</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="notes">Special Instructions</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="e.g., dietary restrictions, preferences"></textarea>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; margin-top: 32px;">
-                    <button class="btn btn-secondary" onclick="goToStep(1)">Back to Details</button>
-                </div>
-            </div>
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
 
-            <!-- Step 3: Order Summary -->
-            <div class="form-section" id="form-step-3">
-                <div class="summary-section active">
-                    <h3>Order Summary</h3>
-                    <p>Please review your order details before confirming.</p>
-
-                    <div class="summary-card">
-                        <div class="summary-header">
-                            <div class="summary-restaurant" id="summary-restaurant-name">Bella Trattoria</div>
-                            <div id="summary-restaurant-cuisine">Italian</div>
-                        </div>
-
-                        <div class="summary-details">
-                            <div class="summary-row">
-                                <div class="summary-label">Delivery Date</div>
-                                <div class="summary-value" id="summary-date">February 28, 2025</div>
-                            </div>
-
-                            <div class="summary-row">
-                                <div class="summary-label">Delivery Time</div>
-                                <div class="summary-value" id="summary-time">12:30 PM</div>
-                            </div>
-
-                            <div class="summary-row">
-                                <div class="summary-label">Number of People</div>
-                                <div class="summary-value" id="summary-people">25</div>
-                            </div>
-
-                            <div class="summary-row">
-                                <div class="summary-label">Price per Person</div>
-                                <div class="summary-value" id="summary-price">$25.00</div>
-                            </div>
-
-                            <div class="summary-row">
-                                <div class="summary-label">Subtotal</div>
-                                <div class="summary-value" id="summary-subtotal">$625.00</div>
-                            </div>
-
-                            <div class="summary-row">
-                                <div class="summary-label">Delivery Fee</div>
-                                <div class="summary-value">$35.00</div>
-                            </div>
-
-                            <div class="summary-row">
-                                <div class="summary-label">Service Fee (5%)</div>
-                                <div class="summary-value" id="summary-service">$31.25</div>
-                            </div>
-                        </div>
-
-                        <div class="summary-total">
-                            Total: <span id="summary-total">$691.25</span>
-                        </div>
-
-                        <div class="form-row" style="margin-top: 24px;">
-                            <label class="form-label" for="delivery-notes">Additional Notes or Instructions</label>
-                            <textarea id="delivery-notes" class="form-control" rows="3" placeholder="Any special requests or delivery instructions?"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="summary-actions">
-                        <button class="btn btn-secondary" onclick="goToStep(2)">Back to Restaurants</button>
-                        <button class="btn btn-primary" onclick="confirmOrder()">Confirm Order</button>
-                    </div>
-                </div>
-
-                <!-- Success Message (hidden by default) -->
-                <div class="success-message" id="success-message">
-                    <div class="success-icon">✓</div>
-                    <h2>Your Order is Confirmed!</h2>
-                    <p>Thank you for your order. A confirmation has been sent to your email, and the restaurant will be in touch shortly to finalize any details.</p>
-                    <p style="margin-top: 24px;">Order #: <strong>NYC-25789</strong></p>
-                    <button class="btn btn-primary" style="margin-top: 32px;" onclick="window.location.reload()">Place Another Order</button>
-                </div>
-            </div>
-        </div>
-    </main>
+        <section id="account" class="account-section">
+            <h2>My Account</h2>
+            <p>Sign in to manage your orders and preferences.</p>
+            <button onclick="showSignIn()">Sign In</button>
+            <p>Not registered? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+        </section>
+    </div>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo" style="color: white;">
-                        <div class="logo-icon" style="background-color: var(--accent);">L</div>
-                        LocalEats
-                    </a>
-                    <p>Connecting NYC businesses with local restaurants for authentic catering that celebrates culinary diversity and supports small businesses.</p>
-                </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-title">For Businesses</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#">Create Account</a></li>
-                        <li class="footer-link"><a href="#">Corporate Programs</a></li>
-                        <li class="footer-link"><a href="#">Recurring Orders</a></li>
-                        <li class="footer-link"><a href="#">Billing & Invoicing</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-title">For Restaurants</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#">Partner With Us</a></li>
-                        <li class="footer-link"><a href="#">Restaurant Dashboard</a></li>
-                        <li class="footer-link"><a href="#">Delivery Logistics</a></li>
-                        <li class="footer-link"><a href="#">Success Stories</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-title">Company</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#">About Us</a></li>
-                        <li class="footer-link"><a href="#">Contact</a></li>
-                        <li class="footer-link"><a href="#">Careers</a></li>
-                        <li class="footer-link"><a href="#">Press</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="copyright">© 2025 LocalEats NYC. All rights reserved.</div>
-                <div class="social-links">
-                    <a href="#" class="social-link">f</a>
-                    <a href="#" class="social-link">t</a>
-                    <a href="#" class="social-link">in</a>
-                    <a href="#" class="social-link">ig</a>
-                </div>
-            </div>
-        </div>
+        <p>&copy; 2025 CultureCater | NYC Catering Made Simple</p>
     </footer>
 
     <script>
-        // Store selected cuisine
-        window.selectedCuisine = '';
+        function submitOrder(event) {
+            event.preventDefault();
+            const form = document.getElementById('cateringForm');
+            const formData = new FormData(form);
+            const orderDetails = Object.fromEntries(formData.entries());
 
-        // Update budget display
-        function updateBudget(value) {
-            document.getElementById('budget-display').textContent = `${value} per person`;
-        }
-
-        // Select cuisine
-        function selectCuisine(element, cuisine) {
-            document.querySelectorAll('.cuisine-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-
-            element.classList.add('selected');
-            window.selectedCuisine = cuisine;
-        }
-
-        // Navigate between steps
-        function goToStep(step) {
-            // Validate first step
-            if (step === 2) {
-                const peopleCount = document.getElementById('people-count').value;
-                const eventDate = document.getElementById('event-date').value;
-
-                if (!peopleCount || !eventDate || !window.selectedCuisine) {
-                    alert('Please fill in all required fields');
-                    return;
-                }
+            // Basic validation
+            if (!orderDetails.cuisine || !orderDetails.date || !orderDetails.time || !orderDetails.people || !orderDetails.delivery) {
+                alert('Please fill out all required fields.');
+                return;
             }
 
-            // Update steps indicator
-            document.querySelectorAll('.step').forEach((stepEl, index) => {
-                if (index + 1 < step) {
-                    stepEl.classList.remove('active');
-                    stepEl.classList.add('completed');
-                } else if (index + 1 === step) {
-                    stepEl.classList.add('active');
-                    stepEl.classList.remove('completed');
-                } else {
-                    stepEl.classList.remove('active', 'completed');
-                }
-            });
-
-            // Show current step form
-            document.querySelectorAll('.form-section').forEach((section, index) => {
-                section.classList.toggle('active', index + 1 === step);
-            });
-
-            // Scroll to top of form
-            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+            // Simulate order submission
+            console.log('Order Submitted:', orderDetails);
+            alert('Thank you! Your order has been submitted successfully.');
+            form.reset();
         }
 
-        // Select restaurant and go to summary
-        function selectRestaurant(name, cuisine, pricePerPerson) {
-            const peopleCount = document.getElementById('people-count').value;
-            const eventDate = document.getElementById('event-date').value;
-            const dateObj = new Date(eventDate);
-
-            // Update summary details
-            document.getElementById('summary-restaurant-name').textContent = name;
-            document.getElementById('summary-restaurant-cuisine').textContent = cuisine;
-            document.getElementById('summary-date').textContent = dateObj.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-            document.getElementById('summary-time').textContent = dateObj.toLocaleTimeString('en-US', {
-                hour: 'numeric',
-                minute: '2-digit'
-            });
-            document.getElementById('summary-people').textContent = peopleCount;
-            document.getElementById('summary-price').textContent = `${pricePerPerson.toFixed(2)}`;
-
-            // Calculate costs
-            const subtotal = peopleCount * pricePerPerson;
-            const serviceFee = subtotal * 0.05;
-            const total = subtotal + 35 + serviceFee;
-
-            document.getElementById('summary-subtotal').textContent = `${subtotal.toFixed(2)}`;
-            document.getElementById('summary-service').textContent = `${serviceFee.toFixed(2)}`;
-            document.getElementById('summary-total').textContent = `${total.toFixed(2)}`;
-
-            // Go to summary step
-            goToStep(3);
+        function showSignIn() {
+            const email = prompt('Enter your email:');
+            const password = prompt('Enter your password:');
+            if (email && password) {
+                alert(`Signed in as ${email}`);
+            }
         }
 
-        // Confirm order and show success message
-        function confirmOrder() {
-            document.querySelector('.summary-section').classList.remove('active');
-            document.getElementById('success-message').style.display = 'block';
-
-            // In a real app, this would submit the order to your backend
-            // and connect with restaurant systems via API
+        function showSignUp() {
+            const email = prompt('Enter your email:');
+            const password = prompt('Enter your password:');
+            if (email && password) {
+                alert(`Account created for ${email}`);
+            }
         }
+
+        // Set min date to tomorrow
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+        document.getElementById('date').min = tomorrow.toISOString().split('T')[0];
     </script>
 </body>
 </html>
